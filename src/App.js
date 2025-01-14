@@ -62,9 +62,9 @@ function App() {
   }, [wordSubmitted])
 
   return (
-    <div className="App">
+    <div>
       {loading && <LoaderPage />}
-      
+      <div className="App">
         <div className='header-text'>
           <h1>NUTRITION ANALYSIS</h1>
         </div>
@@ -103,6 +103,7 @@ function App() {
       <div className="link">
         <a className="myInfo" href="https://yanaos-portfolio.glitch.me/" target="_blank" rel="noreferrer">Developed by <span className="myName">YanaOS</span></a>
         <a className="myInfo" href="https://www.edamam.com/" target="_blank" rel="noreferrer">Powered by www.edamam.com</a>
+      </div>
       </div>
     </div>
   );
