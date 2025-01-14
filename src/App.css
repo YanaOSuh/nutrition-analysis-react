@@ -30,7 +30,9 @@ img {
   min-width: 100vw;
   min-height: 100vh;
   text-align: center;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  
 }
 .header-text {
   background: radial-gradient(circle, rgba(98,124,99,1) 16%, rgba(50,73,45,1) 75%);
