@@ -75,7 +75,7 @@ function App() {
           </input>
         </form>
         <div className='btnSearch-container'>
-          <button className='btnSearch' type='submit'>Search</button>
+          <button className='btnSearch' type='submit' onClick={finalSearch}>Search</button>
         </div>
 
         {
