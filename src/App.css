@@ -1,38 +1,230 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-width: 320px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 .App {
+  background-image: url('./bggreencut.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100vw;
+  min-height: 100vh;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-text {
+  background: radial-gradient(circle, rgba(98,124,99,1) 16%, rgba(50,73,45,1) 75%);
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  color: #191919;
+  margin: 20px 5px;
+  text-shadow: 2px 2px 8px #2b2a2a;
+  font-family: "Lato", serif;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 5px;
+}
+.ingredientsInput {
+  position: relative;
+  cursor: text;
+  font-family: "Lato", serif;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 0 18px;
+  height: 48px;
+  width: 48%;
+  background-color: rgba(252, 239, 225, 0.9);
+  border: 1px solid #d6d6e7;
+  border-radius: 3px;
+  color: rgb(35, 38, 59);
+  box-shadow: inset 0 1px 4px 0 rgb(50 73 45 / 70%);
+  overflow: hidden;
+  transition: all 100ms ease-in-out;
+}
+.ingredientsInput:focus {
+  border-color:  #ff7123;
+  box-shadow: 0 1px 0 0 rgb(35 38 59 / 5%);
+}
+.btnSearch-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 5px;
+}
+.btnSearch {
+  text-transform: uppercase;
+  transition: 0.3s;
+  opacity: 0.9;
+  background: #ff7123;
+  border: none;
+  box-shadow: 0 2px 10px #00000029, 0 3px 6px #0000001a;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  font-family: "Lato", serif;
+  margin: 0 0 30px;
+  padding: 12px 75px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  z-index: 1;
+}
+.btnSearch:hover {
+  opacity: 1;
+}
+.btnSearch:active {
+  top: 4px;
+  box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
+}
+.results {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-self: center;
+  background: #f1f1e6e6;
+  box-shadow: 0 2px 10px #00000029, 0 3px 6px #0000001a;
+  margin: 5px 0;
+  text-align: center;
+  width: 50%;
+}
+.total-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 40px 0px;
+}
+.totals {
+  font-family: "Lato", serif;
+  color: #f1f1e6e6;
+  font-size: 20px;
+  font-weight: 700;
+  background:  rgba(98,124,99,1);
+  padding: 10px 30px;
+}
+.nutrients-container {
+  background-color: rgba(252, 239, 225, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 40px;
+}
+.amountPerServing {
+    color: #191919;
+    font-family: "Lato", serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 5px 25px;
+}
+.nutritionFacts {
+  font-family: "Lato", serif;
+  font-size: 18px;
+  margin: 5px;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
+.container-loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a94;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lds-dual-ring {
+  color: #24391c;
+}
+.lds-dual-ring,
+.lds-dual-ring:after {
+  box-sizing: border-box;
+}
+.lds-dual-ring {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6.4px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 5px;
+}    
+.myInfo {
+  font-family: "Lato", serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: #191919;
+  text-decoration: none;
+  padding: 5px;
+  cursor: pointer;
+}
+.myName {
+  text-decoration: none;
+  cursor: pointer;
+  color:  rgba(50,73,45,1);
+  text-shadow:1px 0px 1px #7d837f;
+  font-weight: 600;
+}
+@media all and (max-width: 820px) {
+  .results {
+    width: 75%;
+  }
+}
+@media all and (max-width: 560px) {
+  .ingredientsInput {
+    width: 60%;
+  }
+  .results {
+    width: 80%;
+  }
+}
+@media all and (max-width: 460px) {
+  .results {
+    width: 90%;
   }
 }
