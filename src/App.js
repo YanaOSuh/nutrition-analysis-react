@@ -73,10 +73,10 @@ function App() {
                 placeholder='Example: 150 g beef, 2 apples ...' 
                 onChange={myIngrSearch}>
           </input>
+          <div className='btnSearch-container'>
+            <button className='btnSearch' type='submit'>Search</button>
+          </div>
         </form>
-        <div className='btnSearch-container'>
-          <button className='btnSearch' type='submit' onClick={finalSearch}>Search</button>
-        </div>
 
         {
           myNutrition && 
